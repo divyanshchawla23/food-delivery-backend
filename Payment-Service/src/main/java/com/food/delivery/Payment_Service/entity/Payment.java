@@ -1,4 +1,4 @@
-package com.food.delivery.Order_Service.entity;
+package com.food.delivery.Payment_Service.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -12,19 +12,19 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "payments")
 @Data
-@Table(name = "orders")
-public class Order {
+public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long userId;
 
-    private Long restaurantId;
-    private Double totalAmount;
+    private Long orderId;
+    private Long userId;
+    private Double amount;
 
     @Enumerated(EnumType.STRING)
-    private OrderStatus status;
+    private PaymentStatus status;
 
     private LocalDateTime createdAt;
 }

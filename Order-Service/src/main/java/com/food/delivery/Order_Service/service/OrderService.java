@@ -19,7 +19,7 @@ public class OrderService {
     }
 
     public List<Order> getOrdersByUserId(Long userId) {
-        return orderRepository.findByUserID(userId);
+        return orderRepository.findByUserId(userId);
     }
 
     @Transactional
@@ -35,7 +35,5 @@ public class OrderService {
         order.setStatus(status);
         return orderRepository.save(order);
     }
-
-
 
 }
